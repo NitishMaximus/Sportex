@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "843590313820",
+    "firebase_url": "https://sportex-playbox.firebaseio.com",
+    "project_id": "sportex-playbox",
+    "storage_bucket": "sportex-playbox.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:843590313820:android:e07c7d23bc0a4d14",
+        "android_client_info": {
+          "package_name": "com.playbox.sportex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "843590313820-l57ghe4nsl56p4p0iob97n9qtsmkci41.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.playbox.sportex",
+            "certificate_hash": "2ddbcc70607dedd6cc5762b3059da1a58bee2d85"
+          }
+        },
+        {
+          "client_id": "843590313820-r40meuhhvplceg7418ajvqs40i95aagb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpDejNx_DfhcbX7UuN4DodBZl2crmvRh8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "843590313820-r40meuhhvplceg7418ajvqs40i95aagb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
