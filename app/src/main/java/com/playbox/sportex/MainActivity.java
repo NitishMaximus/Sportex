@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,SignUp.class);
+                Intent i = new Intent(MainActivity.this,SignUpActivity.class);
                 startActivity(i);
 
             }
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(MainActivity.this, SignIn.class);
+                Intent i = new Intent(MainActivity.this, DashboardActivity.class);
                 startActivity(i);
 
             }

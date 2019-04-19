@@ -3,6 +3,8 @@
     package="com.playbox.sportex">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -18,9 +20,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUp" />
-        <activity android:name=".SignIn" />
-        <activity android:name=".HomePage"></activity>
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".SignInActivity" />
+        <activity android:name=".HomePage" />
+        <activity
+            android:name=".DashboardActivity"
+            android:label="@string/title_activity_dashboard" />
+        <activity
+            android:name=".UserLocationActivity"
+            android:label="@string/title_activity_user_location"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

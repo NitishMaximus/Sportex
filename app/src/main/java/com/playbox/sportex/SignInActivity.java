@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.playbox.sportex.Model.User;
 
-public class SignIn extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity {
 
     EditText edtPhone, edtPassword;
     Button login;
@@ -45,17 +44,17 @@ public class SignIn extends AppCompatActivity {
                             if(dataSnapshot.child(edtPhone.getText().toString()).exists()) {
                                 User user = dataSnapshot.child(edtPhone.getText().toString()).getValue(User.class);
                                 if (user.getPassword().equals(edtPassword.getText().toString())) {
-                                    Toast.makeText(SignIn.this, "Sign In Success", Toast.LENGTH_SHORT).show();
-                                    Intent homeintent = new Intent(SignIn.this, HomePage.class);
+                                    Toast.makeText(SignInActivity.this, "Sign In Success", Toast.LENGTH_SHORT).show();
+                                    Intent homeintent = new Intent(SignInActivity.this, DashboardActivity.class);
                                     startActivity(homeintent);
 
                                 } else {
-                                    Toast.makeText(SignIn.this, "Sign In Failed", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SignInActivity.this, "Sign In Failed", Toast.LENGTH_SHORT).show();
                                 }
                             }
                             else
                             {
-                                Toast.makeText(SignIn.this, "User not exists", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignInActivity.this, "User not exists", Toast.LENGTH_SHORT).show();
                             }
                     }
 
