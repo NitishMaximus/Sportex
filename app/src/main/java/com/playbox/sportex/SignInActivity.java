@@ -1,5 +1,6 @@
 package com.playbox.sportex;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -15,12 +16,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.playbox.sportex.Model.User;
+import com.playbox.sportex.utils.PreferenceUtils;
+
+
+import static android.app.PendingIntent.getActivity;
+import static java.security.AccessController.getContext;
 
 public class SignInActivity extends AppCompatActivity {
 
     EditText edtPhone, edtPassword;
     Button login;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,8 +50,16 @@ public class SignInActivity extends AppCompatActivity {
                                 User user = dataSnapshot.child(edtPhone.getText().toString()).getValue(User.class);
                                 if (user.getPassword().equals(edtPassword.getText().toString())) {
                                     Toast.makeText(SignInActivity.this, "Sign In Success", Toast.LENGTH_SHORT).show();
-                                    Intent homeintent = new Intent(SignInActivity.this, DashboardActivity.class);
-                                    startActivity(homeintent);
+
+                                    try{
+                                        Intent homeintent = new Intent(SignInActivity.this, DashboardActivity.class);
+                                        String qwe = user.getName();
+                                        PreferenceUtils.saveName(qwe,SignInActivity.this);
+                                        startActivity(homeintent);
+                                    }catch(NullPointerException e){
+                                        Toast.makeText(SignInActivity.this, "LOLOLOL", Toast.LENGTH_SHORT).show();
+                                    }
+
 
                                 } else {
                                     Toast.makeText(SignInActivity.this, "Sign In Failed", Toast.LENGTH_SHORT).show();

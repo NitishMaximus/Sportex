@@ -9,4 +9,16 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_user_location">UserLocationActivity</string>
+
+    <string-array name="sports_array">
+        <item>Football</item>
+        <item>Cricket</item>
+        <item>Volleyball</item>
+        <item>Hockey</item>
+        <item>Swimming</item>
+        <item>Lawn Tennis</item>
+        <item>Table Tennis</item>
+        <item>Basketball</item>
+        <item>Badminton</item>
+    </string-array>
 </resources>

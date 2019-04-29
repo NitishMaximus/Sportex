@@ -22,14 +22,12 @@
         </activity>
         <activity android:name=".SignUpActivity" />
         <activity android:name=".SignInActivity" />
-        <activity android:name=".HomePage" />
         <activity
             android:name=".DashboardActivity"
             android:label="@string/title_activity_dashboard" />
-        <activity
-            android:name=".UserLocationActivity"
-            android:label="@string/title_activity_user_location"
-            android:theme="@style/AppTheme" />
+        <activity android:name=".CreateGameForm" />
+        <activity android:name=".ShowGamesActivity" />
+        <activity android:name=".JoinGameActivity"></activity>
     </application>
 
 </manifest>

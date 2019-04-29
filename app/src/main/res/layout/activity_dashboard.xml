@@ -16,13 +16,6 @@
         android:layout_marginBottom="50dp"
         android:weightSum="2">
 
-        <Button
-            android:id="@+id/btn_qwe"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button"
-            android:layout_weight="1"/>
-
         <FrameLayout
             android:id="@+id/contentFragment"
             android:layout_width="fill_parent"
@@ -35,13 +28,12 @@
         android:id="@+id/navigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginRight="0dp"
-        android:layout_marginLeft="0dp"
         android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/navigation" >
+        app:menu="@menu/navigation">
 
     </android.support.design.widget.BottomNavigationView>
 

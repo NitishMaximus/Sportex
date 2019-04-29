@@ -22,6 +22,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.playbox.sportex.utils.PreferenceUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if(PreferenceUtils.getName(MainActivity.this)!=null){
+            Intent i = new Intent(MainActivity.this, DashboardActivity.class);
+            startActivity(i);
+        }
         btn_signin = (Button)findViewById(R.id.btn_SignIn);
         btn_signup = (Button)findViewById(R.id.btn_SignUp);
         gbutton = (SignInButton)findViewById(R.id.sign_in_button);
@@ -61,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(MainActivity.this, DashboardActivity.class);
+                Intent i = new Intent(MainActivity.this, SignInActivity.class);
                 startActivity(i);
 
             }
