@@ -61,7 +61,7 @@ public class CreateGameForm extends AppCompatActivity implements AdapterView.OnI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_create_game_form);
-        Places.initialize(getApplicationContext(), "AIzaSyC8w5KbtsQLOZuY3xklljBTF7POqyjiSFw");
+        Places.initialize(getApplicationContext(), "Insert API key here");
         PlacesClient placesClient = Places.createClient(this);
 
         btn_picktime = (Button)findViewById(R.id.btn_picktime);
