@@ -14,6 +14,7 @@ public class Games{
     private String Latitude;
     private String Longitude;
     private HashMap<String, Boolean> Going;
+    private String GameTimeInMillis;
     private long Time_Created;
 
     public Games() {
@@ -47,8 +48,16 @@ public class Games{
         return Longitude;
     }
 
+    public String getGameTimeInMillis() { return GameTimeInMillis; }
+
+    public void setGameTimeInMillis(String GameTimeInMillis) { this.GameTimeInMillis = GameTimeInMillis; }
+
     public HashMap<String, Boolean> getGoing() {
         return Going;
+    }
+
+    public void setGoing(HashMap<String, Boolean> Going) {
+        this.Going = Going;
     }
 
     public long getTime_Created() {

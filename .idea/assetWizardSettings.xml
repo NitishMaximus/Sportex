@@ -18,6 +18,17 @@
                                 <PersistentState>
                                   <option name="children">
                                     <map>
+                                      <entry key="clipartAsset">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/communication/ic_call_black_24dp.xml" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
                                       <entry key="image">
                                         <value>
                                           <PersistentState>
@@ -33,10 +44,10 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="assetType" value="IMAGE" />
                                       <entry key="imageAsset" value="C:\Users\NITISH\Desktop\New folder\outline-location_on-white-18\2x\outline_location_on_white_18dp.png" />
-                                      <entry key="outputName" value="ic_location" />
+                                      <entry key="outputName" value="ic_call" />
                                       <entry key="theme" value="HOLO_DARK" />
+                                      <entry key="themeColor" value="000000" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -78,7 +89,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputIconType" value="NOTIFICATION" />
+                            <entry key="outputIconType" value="ACTIONBAR" />
                           </map>
                         </option>
                       </PersistentState>
@@ -87,6 +98,11 @@
                 </map>
               </option>
             </PersistentState>
+          </value>
+        </entry>
+        <entry key="vectorWizard">
+          <value>
+            <PersistentState />
           </value>
         </entry>
       </map>

@@ -2,6 +2,7 @@ package com.playbox.sportex;
 
 import android.content.Context;
 import android.content.Intent;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -42,7 +43,7 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                table_user.addValueEventListener(new ValueEventListener() {
+                table_user.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         //get User Information
@@ -53,11 +54,11 @@ public class SignInActivity extends AppCompatActivity {
 
                                     try{
                                         Intent homeintent = new Intent(SignInActivity.this, DashboardActivity.class);
-                                        String qwe = user.getName();
-                                        PreferenceUtils.saveName(qwe,SignInActivity.this);
+                                        PreferenceUtils.saveName(user.getName(),SignInActivity.this);
+                                        PreferenceUtils.savePhone(edtPhone.getText().toString(), SignInActivity.this);
                                         startActivity(homeintent);
                                     }catch(NullPointerException e){
-                                        Toast.makeText(SignInActivity.this, "LOLOLOL", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(SignInActivity.this, "Preference Error", Toast.LENGTH_SHORT).show();
                                     }
 
 

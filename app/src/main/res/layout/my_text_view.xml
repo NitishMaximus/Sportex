@@ -46,7 +46,7 @@
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
                         android:text="time"
-                        android:textColor="@color/places_text_white_alpha_26"
+                        style="@style/GameCardText"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -72,7 +72,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/places_text_white_alpha_26"
+                            style="@style/GameCardText"
                             android:textSize="14sp"
                             android:layout_gravity="center_vertical"
                             android:layout_weight="1"
@@ -84,7 +84,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/places_text_white_alpha_26"
+                            style="@style/GameCardText"
                             android:textSize="10sp"
                             android:layout_gravity="top"
                             android:layout_weight="1"
@@ -114,7 +114,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/organizer"
-                        android:textColor="@color/places_text_white_alpha_26"
+                        style="@style/GameCardText"
                         android:textSize="14sp"
                         android:singleLine="true"
                         android:layout_gravity="center_vertical"
@@ -140,7 +140,7 @@
                     android:layout_marginTop="30dp"
                     android:gravity="center_horizontal"
                     android:text="N"
-                    android:textColor="@color/places_text_white_alpha_26"
+                    style="@style/GameCardText"
                     android:textSize="20sp" />
 
                 <TextView
@@ -149,7 +149,7 @@
                     android:text="Going"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal"
-                    android:textColor="@color/places_text_white_alpha_26"
+                    style="@style/GameCardText"
                     android:textSize="20sp"/>
             </LinearLayout>
 

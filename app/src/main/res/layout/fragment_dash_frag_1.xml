@@ -4,112 +4,156 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Dash_frag_1">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Dash_frag_1"
+    android:background="#2d2d2d">
 
-    <LinearLayout
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#121212"
+        android:gravity="center_vertical"
+        android:text=" Sport"
+        android:textColor="@color/quantum_white_100"
+        android:textSize="30sp" />
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-
-        <TextView
-            android:id="@+id/tvf"
+        android:layout_marginTop="70dp">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/foot"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="FOOTBALL" />
 
-        <Button
-            android:id="@+id/cricket"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="CRICKET" />
+            <android.support.v7.widget.CardView
+                android:id="@+id/foot"
+                style="@style/SportStyleCard"
+                 >
 
-        <Button
-            android:id="@+id/volley"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="VOLLYBALL" />
+                <TextView
+                    style="@style/SportStyleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Football"
+                />
 
-        <Button
-            android:id="@+id/hockey"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="HOCKEY" />
+            </android.support.v7.widget.CardView>
 
-        <Button
-            android:id="@+id/swim"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SWIMMING" />
+            <android.support.v7.widget.CardView
+                android:id="@+id/cricket"
+                style="@style/SportStyleCard"
+                >
 
-        <Button
-            android:id="@+id/lawn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="LAWN TENNIS" />
+                <TextView
+                    style="@style/SportStyleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cricket"
+                    />
 
-        <Button
-            android:id="@+id/tt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TABLE TENNIS" />
 
-        <Button
-            android:id="@+id/basket"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="BASKETBALL" />
+            </android.support.v7.widget.CardView>
 
-        <Button
-            android:id="@+id/bad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="BADMINTON" />
-    </LinearLayout>
+            <android.support.v7.widget.CardView
+                android:id="@+id/volley"
+                style="@style/SportStyleCard"
+                >
+
+                <TextView
+                    style="@style/SportStyleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Volleyball"
+                    />
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/hockey"
+                style="@style/SportStyleCard"
+                >
+
+                <TextView
+                    style="@style/SportStyleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hockey"
+                    />
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/swim"
+                style="@style/SportStyleCard"
+                >
+
+                <TextView
+                    style="@style/SportStyleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Swimming"
+                    />
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/lawn"
+                style="@style/SportStyleCard"
+                >
+
+                <TextView
+                    style="@style/SportStyleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lawn Tennis"
+                    />
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/tt"
+                style="@style/SportStyleCard"
+                >
+
+                <TextView
+                    style="@style/SportStyleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Table Tennis"
+                    />
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/basket"
+                style="@style/SportStyleCard"
+                >
+
+                <TextView
+                    style="@style/SportStyleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Basketball"
+                    />
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/bad"
+                style="@style/SportStyleCard"
+                >
+
+                <TextView
+                    style="@style/SportStyleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Badminton"
+                    />
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>
-
-
-<!--<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Dash_frag_1">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/msg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Welcome"
-            android:textAlignment="center"
-            android:textSize="40dp"/>
-
-        <TextView
-            android:id="@+id/lat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="null" />
-
-        <TextView
-            android:id="@+id/lon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="nulll" />
-
-
-
-    </LinearLayout>
-
-</FrameLayout>
--->

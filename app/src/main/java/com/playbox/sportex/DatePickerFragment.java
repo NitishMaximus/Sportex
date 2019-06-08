@@ -26,6 +26,6 @@ public class DatePickerFragment extends DialogFragment
     }
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        PreferenceUtils.saveDate(year, month, day, getContext());
+        PreferenceUtils.saveDate(year, month+1, day, getContext());
     }
 }

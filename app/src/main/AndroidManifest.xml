@@ -8,9 +8,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logon2"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logon2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
@@ -27,7 +27,11 @@
             android:label="@string/title_activity_dashboard" />
         <activity android:name=".CreateGameForm" />
         <activity android:name=".ShowGamesActivity" />
-        <activity android:name=".JoinGameActivity"></activity>
+        <activity android:name=".JoinGameActivity" />
+        <activity android:name=".UserJoinedGames" />
+        <activity android:name=".UserHostedActivity" />
+        <activity android:name=".UnjoinGameActivity" />
+        <activity android:name=".RemoveGameActivity"></activity>
     </application>
 
 </manifest>

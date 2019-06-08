@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -19,6 +20,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.maps.model.LatLng;
@@ -29,14 +31,24 @@ import com.google.android.libraries.places.api.net.PlacesClient;
 
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.playbox.sportex.Model.User;
 import com.playbox.sportex.utils.PreferenceUtils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,7 +56,7 @@ public class CreateGameForm extends AppCompatActivity implements AdapterView.OnI
 
     Button btn_picktime, btn_pickdate;
     android.os.Handler customHandler = new android.os.Handler();
-    String address, date, time, lat, lon;
+    String address, date, time, lat, lon,timemillis;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,27 +132,58 @@ public class CreateGameForm extends AppCompatActivity implements AdapterView.OnI
             public void onClick(View v) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 final DatabaseReference table_games = database.getReference("Games");
+                final DatabaseReference table_user = database.getReference("User");
 
                 Calendar cal = Calendar.getInstance();
                 long current_time = cal.getTimeInMillis();
 
-                String key = table_games.push().getKey();
+                HashMap<String, Boolean> host_going = new HashMap<String,Boolean>();
+                host_going.put(PreferenceUtils.getName(getApplicationContext()),true);
+
+                final String key = table_games.push().getKey();
                 Map<String, Object> game_details = new HashMap<String, Object>();
                 game_details.put("Sport", spinner.getSelectedItem().toString());
                 game_details.put("Organizer", username);
                 game_details.put("Time", time);
+                game_details.put("GameTimeInMillis", timemillis);
                 game_details.put("Date", date);
                 game_details.put("Address", address);
                 game_details.put("Latitude", lat);
                 game_details.put("Longitude", lon);
-                game_details.put("Going", 0);
+                game_details.put("Going", host_going);
                 game_details.put("Time_Created", current_time);
 
                 Map<String, Object> game_id = new HashMap<String, Object>();
                 game_id.put(key, game_details);
                 table_games.updateChildren(game_id);
 
+                table_user.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        User user = dataSnapshot.child(PreferenceUtils.getPhone(getApplicationContext())).getValue(User.class);
+                        HashMap<String, Boolean> joinedgames;
+                        try{
+                            joinedgames = user.getJoinedGame();
+                            joinedgames.put(key, true);
+                        }catch (NullPointerException e){
+                            joinedgames = new HashMap<String, Boolean>(){{put(key, true);}};
+                        }
+                        table_user.child(PreferenceUtils.getPhone(getApplicationContext())).child("JoinedGame").setValue(joinedgames);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
                 Intent i = new Intent(CreateGameForm.this,DashboardActivity.class);
+                if(Long.parseLong(timemillis)-current_time<0) {
+                    Toast.makeText(CreateGameForm.this, "Enter Valid Date and Time", Toast.LENGTH_SHORT).show();
+
+                }else{
+                    Toast.makeText(CreateGameForm.this, "Game Created Successfully", Toast.LENGTH_SHORT).show();
+                }
                 startActivity(i);
             }
         });
@@ -176,8 +219,40 @@ public class CreateGameForm extends AppCompatActivity implements AdapterView.OnI
             if(year != -1){
                 btn_pickdate.setText(Integer.toString(day)+"/"+Integer.toString(month)+"/"+Integer.toString(year));
             }
-            time = Integer.toString(hour) +":" + Integer.toString(min) +" " +ap;
+            time = Integer.toString(hour) +":" + zero_min +" " +ap;
             date = Integer.toString(day) +"-" + Integer.toString(month)+"-"+Integer.toString(year);
+
+            String zero_hour = Integer.toString(hour);
+            if(zero_hour.length() == 1){
+                zero_hour = "0" + zero_hour;
+            }
+
+            String zero_month = Integer.toString(month);
+            if(zero_month.length() == 1){
+                zero_month = "0" + zero_month;
+            }
+
+            String zero_day = Integer.toString(day);
+            if(zero_day.length() == 1){
+                zero_day = "0" + zero_day;
+            }
+
+            String myDate = Integer.toString(year)+"/"
+                    + zero_month+"/"
+                    +zero_day+" "
+                    +zero_hour+":"
+                    +zero_min+":"
+                    +"00";
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            long millis = 0;
+            try {
+                Date date = sdf.parse(myDate);
+                millis = date.getTime()+43243696;
+                timemillis = Long.toString(millis);
+            }catch(ParseException e){
+                e.printStackTrace();
+            }
 
             customHandler.postDelayed(this, 100);
         }

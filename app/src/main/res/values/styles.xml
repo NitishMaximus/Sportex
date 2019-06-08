@@ -20,7 +20,42 @@
         <item name="contentPaddingTop">10dp</item>
         <item name="contentPaddingLeft">16dp</item>
         <item name="contentPaddingRight">16dp</item>
-        <item name="cardBackgroundColor">@color/colorPrimary</item>
+        <item name="cardBackgroundColor">#000000</item>
+    </style>
+
+    <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">#228B22</item>
+        <item name="android:textColor">@color/quantum_white_100</item>
+    </style>
+
+    <style name="signInUpEditText">
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginEnd">20dp</item>
+        <item name="android:background">@drawable/input_design</item>
+        <item name="android:textColor">@color/quantum_white_100</item>
+        <item name="android:textColorHint">@color/quantum_white_100</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:ems">10</item>
+    </style>
+
+    <style name="SportStyleCard">
+        <item name="android:layout_height">110dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="cardBackgroundColor">@color/quantum_white_100</item>
+    </style>
+
+    <style name="SportStyleText">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:textSize">26sp</item>
+    </style>
+
+    <style name="GameCardText">
+        <item name="android:textColor">@color/quantum_white_100</item>
     </style>
 
 </resources>

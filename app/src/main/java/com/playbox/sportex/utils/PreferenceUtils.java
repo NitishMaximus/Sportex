@@ -23,6 +23,19 @@ public class PreferenceUtils {
         return prefs.getString("name", null);
     }
 
+    public static boolean savePhone(String phone, Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor prefsEditor = prefs.edit();
+        prefsEditor.putString("phone", phone);
+        prefsEditor.apply();
+        return true;
+    }
+
+    public static String getPhone(Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getString("phone", null);
+    }
+
     public static boolean saveLatitude(String latitude, Context context){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor prefsEditor = prefs.edit();

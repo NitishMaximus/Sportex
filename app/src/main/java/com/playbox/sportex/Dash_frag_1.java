@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -30,12 +32,8 @@ import java.util.List;
 
 
 public class Dash_frag_1 extends Fragment {
-    Button foot,cric,volley,basket,hockey,swim,lawn,tt,bad;
-    android.os.Handler customHandler = new android.os.Handler();
-    TextView t;
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
+    CardView foot,cric,volley,basket,hockey,swim,lawn,tt,bad;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,10 +49,6 @@ public class Dash_frag_1 extends Fragment {
         tt = view.findViewById(R.id.tt);
         bad = view.findViewById(R.id.bad);
         basket = view.findViewById(R.id.basket);
-
-        customHandler.postDelayed(updateTimerThread, 0);
-
-        t = view.findViewById(R.id.tvf);
 
         final Intent i = new Intent(getActivity(), ShowGamesActivity.class);
 
@@ -131,17 +125,6 @@ public class Dash_frag_1 extends Fragment {
         });
         return view;
     }
-
-    private Runnable updateTimerThread = new Runnable() {
-        public void run() {
-
-            if(PreferenceUtils.getsharedLongitude(getContext()) != null){
-                t.setText(PreferenceUtils.getsharedLatitude(getContext()) +"   " + PreferenceUtils.getsharedLongitude(getContext()));
-                return;
-            }
-            customHandler.postDelayed(this, 100);
-        }
-    };
 
 
 
